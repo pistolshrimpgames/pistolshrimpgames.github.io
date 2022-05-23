@@ -29,7 +29,7 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: dogar_and_kazon
 github_username:  pistolshrimpgames
-theme: just-the-docs
+remote_theme: just-the-docs/just-the-docs
 
 footer_content: "Copyright &copy; 2022 Pistol Shrimp &trade;. Content available under an <a href=\"https://github.com/pistolshrimpgames/pistolshrimpgames.github.io/blob/main/LICENSE.txt\">MIT license.</a>"
 
