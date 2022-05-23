@@ -1,2 +1,3 @@
 # pistolshrimpgames.github.io
-Pistol Shrimp Site Repo
+
+Repository for public documentation hosted at https://pistolshrimpgames.github.io. Visit it for the actual documentation.
