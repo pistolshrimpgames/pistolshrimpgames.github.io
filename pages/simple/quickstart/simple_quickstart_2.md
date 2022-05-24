@@ -4,6 +4,7 @@ title: Physics Objects, Conjure, Bootstrap
 parent: Quick Start
 grand_parent: Simple
 nav_order: 2
+last_modified_date: 2022-05-23
 ---
 
 A simulation with nothing physical in it and no player participation isn't terribly interesting, but this just proves you're up and running. In this section we'll cover adding a physics object, manipulating it in script, and adding some simple player controls.

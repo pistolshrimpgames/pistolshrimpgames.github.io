@@ -3,6 +3,7 @@ layout: default
 title: Simple FAQs
 parent: Simple
 nav_order: 10
+last_modified_date: 2022-05-23
 ---
 
 # Using Simple
@@ -41,7 +42,7 @@ The best way to learn will be to look at [the example data]({% link pages/conten
 
 ## Do you have any examples of stuff you’ve made?
 
-Yes! Check out our [content documentation]({% link pages/content/content.md %}). There is very primitive data meant for a beginner, and soon there will be much more complex data used for UQM2’s melee mode, which will eventually ship with the finished game.
+Yes! Check out our [content documentation]({% link pages/content/content.md %}). There is very primitive data meant for a beginner as well as much more complex data used for [UQM2](https://pistolshrimpgames.com/uqm2/)’s melee mode, which will eventually ship with the finished game.
 
 ## How do I add art, sounds, and VFX?
 

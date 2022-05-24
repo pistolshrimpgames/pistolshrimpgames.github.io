@@ -3,6 +3,7 @@ layout: default
 title: Simple .ini Documentation
 parent: Simple
 nav_order: 5
+last_modified_date: 2022-05-23
 ---
 
 Many of these settings are in flux, have not been tested in all combinations, and are likely to break. ini files should be named the same as their corresponding sim and placed next to the sim file, in the same directory.
