@@ -13,7 +13,7 @@ last_modified_date: 2022-05-23
 1. **[Toolbar](#toolbar)**: Actions for running the viewer, debugging a running simulation, and [configuring multiplayer](#multiplayer-config).
 2. **Simulation / File Explorer**: All included simulations (sims) and their script (ai) files are listed here. Double-clicking an ai file will open it in the _Script Editor_.
 3. **Output Log**: Errors from the tool/runtime and user-specified prints.
-4. **Script Editor**: Script editor, shows the list of open scripts in tabs.
+4. **[Script Editor](#script-editor)**: Script editor, shows the list of open scripts in tabs.
 5. **Breakpoint Debugger**: Shows information when using breakpoint debugging.
 
 # Toolbar
@@ -82,3 +82,41 @@ To play over the network, joining another player's game. Your `ID` must be uniqu
 ## Debugger Controls
 
 TODO: Explain me!
+
+# Script Editor
+
+![](/assets/simple/simple_script_ed2.png)
+
+The script editor is where you will spend the majority of your time creating in simple, authoring script logic to drive your sims. The window displays the active script and includes tabs for all other opened scripts so you can swap between them (Hotkey: `Ctrl + Tab`).
+
+You may also creation additional script editor windows by dragging the righthand or bottom handle of the window out (maximum 4 windows in a grid), splitting the screen. To pick which window receives a script when opening it from the Simulation Explorer, just click that window first to give it focus, indicated by a subtle change around the border of the panel.
+
+![](/assets/simple/simple_script_ed.png)
+
+## Script Editor Controls
+
+Rough list of all the controls you can use while editing scripts:
+> Note: Undo/Redo currently are not functional.
+
+- **Single Left Click**: _Modify_
+    - **In the window**: Select a line.
+    - **On an editable section** (gray box): Edit value.
+    - **On a _flow_ line**: Modify a _flow arrow_.
+- **Double Left Click**
+    - **On a component/property/namespace**: Rename.
+- **Left Click Drag**: Move selected lines (can move between panes with a split screen editor).
+- **Right Click**: _Add/Markup_
+    - **In the window**: Extend a component. Add a namespace.
+    - **Within a component**: Add a SECTION to component.
+        - **On a Block operation**: Add a PROPERTIES section to the Block. 
+    - **Within PROPERTIES**: Add a property.
+    - **Within a SECTION**: Add an operation.
+    - **On a component/property/operation**: Modify markup.
+- **Delete**:
+    - **On an component/operation/property**: Remove the selected object(s).
+    - **On an inherited property**: Remove property override and restore to default.
+- **Ctrl+C, Ctrl+X, Ctrl+V**: Copy/cut/paste selected components, properties, namespaces.
+    > _Note_: Cutting and pasting _always_ makes a copy of a component, so references to the cut components/properties not in scope during the cut/paste will break. Use left click drag to move if this is not what you want.
+- **Ctrl+D**: Enable/disable selected operation(s).
+- **Ctrl+L**: Toggle line numbers.
+- **Enter**: Commit number entry (when modifying name/number fields).
