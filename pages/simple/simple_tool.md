@@ -3,7 +3,7 @@ layout: default
 title: Simple Tool UI Overview
 parent: Simple
 nav_order: 4
-last_modified_date: 2022-05-23
+last_modified_date: 2022-05-26
 ---
 
 # Tool Layout
@@ -101,7 +101,7 @@ Rough list of all the controls you can use while editing scripts:
 - **Single Left Click**: _Modify_
     - **In the window**: Select a line.
     - **On an editable section** (gray box): Edit value.
-    - **On a _flow_ line**: Modify a _flow arrow_.
+    - **On a _flow_ line**: Modify a [_flow arrow_](/simple/simple_tool.html#flow-out).
 - **Double Left Click**
     - **On a component/property/namespace**: Rename.
 - **Left Click Drag**: Move selected lines (can move between panes with a split screen editor).
