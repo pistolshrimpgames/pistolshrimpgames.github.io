@@ -3,7 +3,7 @@ layout: default
 title: Language Reference
 parent: Simple
 nav_order: 5
-last_modified_date: 2022-05-26
+last_modified_date: 2022-06-01
 ---
 
 This is an extremely high-level overview of the Simple script language, mostly to help explain what different words (e.g. markup) mean and not necessarily how to use them all together. Simple script is comprised of a few high-level parts, so just to familiarize yourself with those big ones:
@@ -81,7 +81,20 @@ Evaluating or Assigning a `{ collection }` to a number will yield the size of th
 
 #### Collection Indexer
 
-TODO: Write me.
+When casting a `{ collection }` to a single type (e.g. `Assign property = { collection }`), the first member of the collection is always returned. Sometimes you will want to _index_ in to the collection and get a member in the middle or end of the collection. This is achieved by using the _indexer_, which is a two step process.
+
+The indexer starts at 1, meaning the first member of the collection. To get a different member, set the `indexer` to be the depth in the collection you want. For example, the last member in the collection would use an `indexer` equal to the size of the collection.
+
+Once assigning the `indexer`'s value, if you cast an object to the `{ collection } [ indexer ]`, you will get the member at that index. For example, getting the last member of a collection:
+
+![](/assets/simple/simple_indexer.png)
+
+Or you could iterate through a collection by index.
+> _Note_: repeat Filter/Evaluate's `<index>` starts at `0`, while `indexer` starts at `1`.
+
+![](/assets/simple/simple_indexer2.png)
+
+Specifying an index out of range for the `indexer` (e.g. a negative number, or one larger than the collection) shows a warning at runtime and makes any attempts to assign to it fail.
 
 ## Property Flavors
 
@@ -100,7 +113,24 @@ TODO: Write me.
 
 ## Complex Property Initialization
 
-Happens when you select `add initialization`. TODO: Write me.
+Property initialization is limited to a single _Assign_ line, meaning you can only add one operator and do no more than what it and a single Assign's interface allows. Sometimes, you will want more involved initialization, like adding multiple members to a collection, setting separate parts of a vector, or even conditionally initializing properties differently depending on some logic. Complex property intiliazation is available when you want this.
+
+![](/assets/simple/simple_property_init.png)
+
+A complex property initialization block is represented by a `...` on the right-hand side of a property initialization. It happens when you right click and select `add initialization` and can be removed by right clicking and selecting `remove initialization`.
+
+Within an initialization, a scoped `<property>` property is available, representing the property being initialized. No operations are allowed which could trigger other, script side effects (i.e. Synchronize, Conjure), and no Assign is allowed of anything but the scoped `<property>` or properties added to a Block's PROPERTIES section. All other commands (Filter, Evaluate) are available, and all the same rules apply for operations.
+
+Complex initializations obey the same rules of the [property flavors](#property-flavors), so an _immediate_ property would execute its initialization every frame, for example.
+
+An important reason to use complex property initializations is to ensure the start-of-frame property is initialized correctly, so outside observers will see a good start value.
+
+![](/assets/simple/simple_property_init2.png)
+
+In the above example:
+- **Not Ideal**: Collection is populated in INITIALIZE. Requires a persistent property that is going to change (but only once). Collection will be empty to outside observers until until the next frame.
+- **Better**: Collection is populated in a property initialization. Collection will be 'correct' on the first frame. No real script (INITIALIZE) script required.
+- **Ideal**: Collection is marked as _immediate_. The collection is effectively a constant and behaves like one, without the need for a persistent property.
 
 # Operations
 
