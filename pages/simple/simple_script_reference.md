@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Simple Language Reference
+title: Language Reference
 parent: Simple
 nav_order: 5
 last_modified_date: 2022-05-26
@@ -77,6 +77,8 @@ Properties can be read between components but are only allowed to be set by the 
 
 All properties may be marked to be a collection, indicated by `{ curly braces }`, meaning multiples of any matching property may be stored in it. Value-type collections (including vector and orientation) always initialize with one member. Component-type collections may be empty, which is equivalent to null.
 
+Evaluating or Assigning a `{ collection }` to a number will yield the size of the collection.
+
 #### Collection Indexer
 
 TODO: Write me.
@@ -108,7 +110,7 @@ The behavior for operations with indents (everything but Assign) is: "if the ope
 
 ## Evaluate
 
-Evaluate if a statement is true.
+Evaluate a number (for _repeat_) or if a statement is true.
 
 ### Evaluate Markup
 

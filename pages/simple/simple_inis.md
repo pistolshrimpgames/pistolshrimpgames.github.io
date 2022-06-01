@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Simple .ini Documentation
+title: .ini Documentation
 parent: Simple
 nav_order: 5
 last_modified_date: 2022-05-23
