@@ -14,17 +14,23 @@ Explanations of the built-in, code-backed components in Simple and their propert
 
 ### entity
 
+![](/assets/simple/components/entity.png)
+
 The most basic, common component type. Everything derives from `entity`.
 - **health**: When 0 or less at the end of the frame, the component will die.
 - **{ extra captures }**: Has no code logic, but simply allows all components to receive [captured components]({% link pages/simple/simple_script_reference.md %}#captured-components).
 
 ### base
 
+![](/assets/simple/components/base.png)
+
 Even simpler than entity. Does nothing on its own and will always die at the end of frame. Useful for creating _function_-like components.
 
 ## Simulation & Data Storage
 
 ### Simulation
+
+![](/assets/simple/components/simulation.png)
 
 Simulations are like 'levels,' containers for other components. All non-Simulation components must belong to a _single_ Simulation. [Entry Point](#entry-point) is the most commonly-used type of Simulation. Simulation is rarely used on its own except for as a data storage/sharing mechanism alongside other Entry Points.
 - **elapsed time**: Duration, in seconds, Simulation has been alive.
@@ -34,6 +40,8 @@ Simulations are like 'levels,' containers for other components. All non-Simulati
 
 ### Entry Point
 
+![](/assets/simple/components/entry_point.png)
+
 Effectively "a level". Behaves just like a [Simulation](#simulation) except it receives and is responsible for conjuring other Singletons (`(conjured, published)` components).
 
 Only one Entry Point is allowed per sim file.
@@ -41,6 +49,8 @@ Only one Entry Point is allowed per sim file.
 ### Save State
 
 > _Note_: Advanced usage only.
+
+![](/assets/simple/components/save_state.png)
 
 Special component that will store all of its properties' values when destroyed and reconstruct them when conjured again. Only permits storage of value types (numbers, vectors, orientations).
 - **path**: Location to place the save file - the save category.
@@ -54,6 +64,8 @@ Components which interact with the view.
 
 ### Viewable
 
+![](/assets/simple/components/viewable.png)
+
 Any object which will want to be "seen" in the view, e.g. with a visual representation, must be a Viewable. All physics objects, for example, are Viewables.
 
 You will generally have little reason to create a 'raw' Viewable, but it's an intermediate for many objects.
@@ -61,6 +73,8 @@ You will generally have little reason to create a 'raw' Viewable, but it's an in
 - **View ID**: Unique ID to tell the view what resource will be used to represent the object. An example can be seen in the Melee content with the `Dialog` components. TODO: Add explanation for Dialog w/ resource files.
 
 ### Input
+
+![](/assets/simple/components/input.png)
 
 Every time a player/viewer joins the running game, an `Input` is conjured and placed into each Simulation's `{ client input }`. Mapping keys to input is specified within the parallel sim's [ini]({% link pages/simple/simple_inis.md %}#input).
 - **primary button**: 0 - released, 1 - just released, 2 - pressed, 3 - just pressed.
@@ -76,11 +90,15 @@ Objects which have, at a minimum, position and rotation in the world. Some with 
 
 ### Transform
 
+![](/assets/simple/components/transform.png)
+
 A base type of an object which can have position and rotation in space.
 - **position**: Vector position.
 - **orientation**: Orientation.
 
 ### Velocities
+
+![](/assets/simple/components/velocities.png)
 
 A base type of an object which can have velocity.
 - **linear**: Linear velocity.
@@ -90,6 +108,8 @@ A base type of an object which can have velocity.
 - **attach point**: Optionally attach this object to a [body point](#body-point), causing it to inherit all changes to position from it and velocity from its parent transform.
 
 ### Body Point
+
+![](/assets/simple/components/body_point.png)
 
 Body points serve a few purposes for creating relationships between different positions/orientations in space.
 - Permitting the use of [attach points](#velocities) of other objects.
@@ -116,7 +136,13 @@ Properties:
     - _As an Output_: The world orientation produced by the `local to body rotation`.
 - **impart rotation**: Whether or not the body point imparts its rotation to objects using it as an [attach point](#velocities).
 
+### Overlapper
+
+_Not Implemented_, see [Collider](#collider), which functionally implements its properties.
+
 ### Collider
+
+![](/assets/simple/components/collider.png)
 
 Colliders have Shapes which define their extents and can generate [contacts](#contact). They must belong to a [collision body](#collision-bodies).
 - **is trigger**:
@@ -137,6 +163,8 @@ Colliders extend [Body Point](#body-point) and should specify the `parent transf
 
 ### Contact
 
+![](/assets/simple/components/contact.png)
+
 Contacts are generated in [colliders](#collider)' `{ contacts }` collection when a valid collision occurs.
 - **owning collider**: The collider the contact belongs to (i.e. which one has it in its `{ contacts }`).
 - **other collider**: The collider which is being contacted by the `owning collider`.
@@ -145,7 +173,7 @@ Contacts are generated in [colliders](#collider)' `{ contacts }` collection when
 - **health**: If a Contact's `health` is 0 or less for any reason, it will not be generated. The default Contact has 1 health, but you may make an extension to Contact for use with Colliders' [contact template](#collider) in conjunction with a [property initialization]({% link pages/simple/simple_script_reference.md %}#complex-property-initialization) that can conditionally set it to 0.
 
 
-> _Note_: Contacts are not allowed to run any script sections, but the UI doesn't prevent you from trying.
+> _Note_: Contacts are not allowed to run any script SECTIONS, but the UI doesn't currently prevent you from trying. Don't do it!
 
 ## Collision Bodies
 
@@ -153,10 +181,14 @@ Collision Bodies are objects that move through space and usually have [colliders
 
 ### Collision Body
 
+![](/assets/simple/components/collision_body.png)
+
 The basic Collision Body has no _physical_ interaction with other objects, meaning it and its colliders are allowed to penetrate other Collision/Rigid Bodies.
 - **{ colliders }**: Colliders belonging to this Collision Body. Collision Bodies should not share Colliders.
 
 ### Rigid Body
+
+![](/assets/simple/components/rigid_body.png)
 
 Rigid Bodies are _physical_ Collision Bodies which interact in physics with other Rigid Bodies' colliders. Physics will alter their velocities and position based on the interactions.
 - **body type**
@@ -176,31 +208,46 @@ Shapes define the boundaries of a given collider.
 
 #### Sphere Shape
 
+![](/assets/simple/components/sphere_shape.png)
+
 - **radius**: Radius of the sphere in units.
 
 #### Capsule Shape
+
+![](/assets/simple/components/capsule_shape.png)
 
 - **radius**: Radius of the capsule (x, z dimensions) in units.
 - **height**: Height of the capsule (y dimension) in units.
 
 #### Box Shape
 
+![](/assets/simple/components/box_shape.png)
+
 - **extents**: xyz dimensions of the box in units.
 
 ### Mesh Shapes
 
-Some shapes can optionally use an `obj` file as complex mesh.
+Some shapes can use an `obj` file as complex mesh.
+- **mesh path**: Path to the desired `obj` mesh.
 - **scale**: Scale (default 1) of the mesh.
 
+> _Note_: The tool does not give you much feedback about mesh shapes right now if something goes wrong (it likely just crashes at runtime). If your runtime is crashing, make sure your `obj` looks correct, especially when trying to follow the rules of the [convex shape](#convex-mesh-shape).
+
 #### Convex Mesh Shape
+
+![](/assets/simple/components/convex_mesh_shape.png)
 
 Convex mesh shapes must specify an `obj` which has no concave parts, with internal angles between edges/faces no greater than 180 degrees. Convex mesh shapes interact with both convex and concave mesh shapes.
 
 #### Concave Mesh Shape
 
+![](/assets/simple/components/concave_mesh_shape.png)
+
 Concave mesh shapes can be made of any type of mesh, but cannot interact with any other concave mesh shapes.
 
 ### Raycast Shape
+
+![](/assets/simple/components/raycast_shape.png)
 
 Raycast shape is a special shape that creates a line from the position of the collider to an optional end target. When its [collider](#collider) has `is trigger` set to 1, it will create multiple [contacts](#contact); 0, it will stop on the first collider it touches. 
 - **length**: Length of the ray, starting from the position of the collider. If there is no target, the ray will just be a line oriented based on the collider. 
