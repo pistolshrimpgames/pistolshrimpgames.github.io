@@ -16,7 +16,7 @@ Explanations of the built-in, code-backed components in Simple and their propert
 
 The most basic, common component type. Everything derives from `entity`.
 - **health**: When 0 or less at the end of the frame, the component will die.
-- **{ extra captures }**: Has no code logic, but simply allows all components to receive [captured components](/pages/simple/simple_script_reference.md#captured-components).
+- **{ extra captures }**: Has no code logic, but simply allows all components to receive [captured components]({% link pages/simple/simple_script_reference.md %}#captured-components).
 
 ### base
 
@@ -62,7 +62,7 @@ You will generally have little reason to create a 'raw' Viewable, but it's an in
 
 ### Input
 
-Every time a player/viewer joins the running game, an `Input` is conjured and placed into each Simulation's `{ client input }`. Mapping keys to input is specified within the parallel sim's [ini](/pages/simple/simple_inis.md#input).
+Every time a player/viewer joins the running game, an `Input` is conjured and placed into each Simulation's `{ client input }`. Mapping keys to input is specified within the parallel sim's [ini]({% link pages/simple/simple_inis.md %}#input).
 - **primary button**: 0 - released, 1 - just released, 2 - pressed, 3 - just pressed.
 - **primary axis**: xyz values which can read 1 or -1 as button pressed states. Total of 6 usable buttons.
 - **secondary axis**: (same as primary axis)
@@ -142,6 +142,10 @@ Contacts are generated in [colliders](#collider)' `{ contacts }` collection when
 - **other collider**: The collider which is being contacted by the `owning collider`.
 - **position**: Position in space of the intersection.
 - **rotation**: Rotation of the intersection, based on the Shapes of the intersecting colliders. The up vector of the orientation is the contact's _normal_.
+- **health**: If a Contact's `health` is 0 or less for any reason, it will not be generated. The default Contact has 1 health, but you may make an extension to Contact for use with Colliders' [contact template](#collider) in conjunction with a [property initialization]({% link pages/simple/simple_script_reference.md %}#complex-property-initialization) that can conditionally set it to 0.
+
+
+> _Note_: Contacts are not allowed to run any script sections, but the UI doesn't prevent you from trying.
 
 ## Collision Bodies
 
