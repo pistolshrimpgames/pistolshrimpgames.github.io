@@ -56,13 +56,16 @@ Simple is the creation of mad scientist, Fred Ford. He is part of [Pistol Shrimp
 
 ## How can I report a problem?
 
-Simple is in active development and is nowhere near alpha. We are aware of many, many problems already, especially in the simple UI, but we’re most interested in “show-stopper” issues like crashes in the game runtime or viewer. Since we have only had a limited chance to test the viewer with different hardware configurations, we anticipate most of the serious issues there. If you get one of those, [email us](mailto:help@pistolshrimpgames.com) with repro steps and, if needed, your `game` directory. We will have a better community support mechanism in the near future.
+Simple is in active development and is nowhere near alpha. We are aware of many, many problems already, especially in the simple UI, but we’re most interested in “show-stopper” issues like crashes in the game runtime or viewer. Since we have only had a limited chance to test the viewer with different hardware configurations, we anticipate most of the serious issues there. If you get some serious issues, you can do any of the following:
+- [Join our Discord](https://discord.gg/nvw4JbsY) to ask questions and get help.
+- [Email us](mailto:help@pistolshrimpgames.com) with repro steps and, if needed, your `game` directory.
 
 ## How can I support The Ur-Quan Masters 2, Simple, or Pistol Shrimp?
 
 We will have more ways to do this soon, but for now:
 - **Funding**: Anything raised through [Twitch subscriptions](https://twitch.tv/pebby) or [itch](https://pistolshrimp.itch.io/simple/purchase) goes directly to funding development.
 - **Documenting**: Have you become an expert in Simple? Improve these docs or make video tutorials for other new users!
+- **Join the Community**: Join our [community Discord](https://discord.gg/nvw4JbsY).
 - **Tell Everyone!**: No, seriously. We think what we're doing is pretty weird/cool/crazy, so we would love any help getting the word out.
 
 ## I want to use Simple as part of my full-fledged game! Who can I talk to about it?
