@@ -65,7 +65,7 @@ Simple is in active development and is nowhere near alpha. We are aware of many,
 We will have more ways to do this soon, but for now:
 - **Funding**: Anything raised through [Twitch subscriptions](https://twitch.tv/pebby) or [itch](https://pistolshrimp.itch.io/simple/purchase) goes directly to funding development.
 - **Documenting**: Have you become an expert in Simple? Improve these docs or make video tutorials for other new users!
-- **Join the Community**: Join our [community Discord](https://discord.gg/nvw4JbsY).
+- **Join the Community**: Join our [community Discord](https://discord.gg/rasVCDmYKp).
 - **Tell Everyone!**: No, seriously. We think what we're doing is pretty weird/cool/crazy, so we would love any help getting the word out.
 
 ## I want to use Simple as part of my full-fledged game! Who can I talk to about it?
